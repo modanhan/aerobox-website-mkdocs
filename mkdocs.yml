@@ -1,4 +1,40 @@
-site_name: My Docs
+site_name: Aerobox Games
 site_url: https://aeroboxgames.com
+
+nav:
+  - TEST TEST: index.md
+  - Rogue Racer: rogue-racer.md
+
 theme:
   name: material
+  palette:
+    scheme: slate
+    primary: black
+  font:
+    text: Roboto
+
+  logo: assets/logo.png
+
+  features:
+    - navigation.instant
+    - navigation.footer
+    - navigation.tabs
+
+plugins:
+  - blog
+
+extra:
+  # generator: false
+  social:
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/aeroboxgames
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/aeroboxgames?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==
+    - icon: fontawesome/brands/discord
+      link: https://www.instagram.com/aeroboxgames?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==
+  generator: false
+
+extra_css:
+  - stylesheets/extra.css
+
+copyright: Copyright &copy; 2020 - 2026 Aerobox Games.
