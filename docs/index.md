@@ -21,7 +21,7 @@ hide:
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: -1;
+    z-index: -100;
     background-image: url('assets/nos-bg-1.png');
     background-size: cover;
     background-position: bottom center;
@@ -36,8 +36,29 @@ hide:
     bottom: 0;
     top: 100vh;
     pointer-events: none;
-    z-index: -1;
+    z-index: -100;
     background: var(--md-default-bg-color, #fff);
+  }
+
+  #nos-bg-gradient {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 520px;
+    top: calc(100vh - 520px);
+    pointer-events: none;
+    z-index: -8;
+    opacity: 0;
+    background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--md-default-bg-color) 0%, transparent) 0%,
+    color-mix(in srgb, var(--md-default-bg-color) 2%, transparent) 20%,
+    color-mix(in srgb, var(--md-default-bg-color) 8%, transparent) 38%,
+    color-mix(in srgb, var(--md-default-bg-color) 22%, transparent) 56%,
+    color-mix(in srgb, var(--md-default-bg-color) 50%, transparent) 74%,
+    color-mix(in srgb, var(--md-default-bg-color) 82%, transparent) 88%,
+    var(--md-default-bg-color, #fff) 100%
+    );
   }
 
   .md-main__inner,
@@ -50,7 +71,7 @@ hide:
     right: 0;
     bottom: 0;
     pointer-events: none;
-    z-index: 10;
+    z-index: -10;
     transform-origin: bottom right;
     height: clamp(360px, 110vh, 1280px);
     width: auto;
@@ -61,7 +82,7 @@ hide:
     right: 0;
     bottom: 0;
     pointer-events: none;
-    z-index: 11;
+    z-index: -9;
     transform-origin: bottom right;
     mix-blend-mode: color-dodge;
     height: clamp(360px, 110vh, 1280px);
@@ -81,6 +102,7 @@ hide:
 
 <div id="nos-bg" aria-hidden="true"></div>
 <div id="nos-bg-mask" aria-hidden="true"></div>
+<div id="nos-bg-gradient" aria-hidden="true"></div>
 
 <img id="nos-chars" src="assets/nos-chars.png" alt="">
 <img id="nos-chars-glow" src="assets/nos-chars-glow.png" alt="">
@@ -93,6 +115,7 @@ hide:
 
     var bg = document.getElementById('nos-bg');
     var mask = document.getElementById('nos-bg-mask');
+    var gradient = document.getElementById('nos-bg-gradient');
     var chars = document.getElementById('nos-chars');
     var glow = document.getElementById('nos-chars-glow');
     var root = document.documentElement;
@@ -107,7 +130,12 @@ hide:
       var charsBottom = chars.getBoundingClientRect().bottom;
       var maskTop = Math.max(0, Math.min(window.innerHeight, charsBottom));
       var contentTop = Math.max(0, Math.min(window.innerHeight, charsBottom - window.scrollY * charsSpeed));
+      var gradientHeight = 520;
+      var gradientTop = maskTop - gradientHeight;
+      var gradientOpacity = Math.min(1, window.scrollY / 900);
       mask.style.top = maskTop + 'px';
+      gradient.style.top = gradientTop + 'px';
+      gradient.style.opacity = gradientOpacity.toFixed(3);
       root.style.setProperty('--nos-content-offset', contentTop - window.innerHeight * 0.5 + 'px');
     }
     window.addEventListener('scroll', onScroll, { passive: true });
