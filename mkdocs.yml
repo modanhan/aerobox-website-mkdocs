@@ -14,6 +14,7 @@ theme:
     text: Roboto
 
   logo: assets/logo.png
+  favicon: assets/logo.png
 
   features:
     - navigation.instant

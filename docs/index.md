@@ -23,7 +23,7 @@ hide:
     pointer-events: none;
     z-index: -1;
     background-image: url('assets/nos-bg-1.png');
-    background-size: max(100%, 1800px) auto;
+    background-size: cover;
     background-position: bottom center;
     background-repeat: no-repeat;
     will-change: background-position;
@@ -69,11 +69,11 @@ hide:
     max-width: none;
   }
 
-  @media (max-aspect-ratio: 3/4) {
+  @media (max-aspect-ratio: 1) {
     #nos-chars,
     #nos-chars-glow {
-      right: -24vw;
-      height: clamp(260px, 72vh, 840px);
+      right: -20vw;
+      height: clamp(280px, 80vh, 840px);
     }
   }
 
@@ -96,10 +96,12 @@ hide:
     var chars = document.getElementById('nos-chars');
     var glow = document.getElementById('nos-chars-glow');
     var root = document.documentElement;
+    var mobileQuery = window.matchMedia('(max-aspect-ratio: 1)');
     function onScroll() {
       var bgY = baseY + window.scrollY * bgSpeed;
       var charsY = window.scrollY * charsSpeed + 100;
-      bg.style.backgroundPosition = 'center calc(70% + ' + bgY + 'px)';
+      var bgX = mobileQuery.matches ? 'calc(100%)' : 'center';
+      bg.style.backgroundPosition = bgX + ' calc(70% + ' + bgY + 'px)';
       chars.style.transform = 'translateY(' + charsY + 'px)';
       glow.style.transform = 'translateY(' + charsY + 'px)';
       var charsBottom = chars.getBoundingClientRect().bottom;
