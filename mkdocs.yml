@@ -2,7 +2,7 @@ site_name: Aerobox Games
 site_url: https://aeroboxgames.com
 
 nav:
-  - TEST TEST: index.md
+  - Home: index.md
   - Rogue Racer: rogue-racer.md
 
 theme:

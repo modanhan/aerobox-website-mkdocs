@@ -25,6 +25,17 @@ hide:
     will-change: background-position;
   }
 
+  #nos-bg-mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    background: var(--md-default-bg-color, #fff);
+  }
+
   #nos-chars {
     position: fixed;
     right: 0;
@@ -56,9 +67,11 @@ hide:
       height: clamp(260px, 72vh, 840px);
     }
   }
+
 </style>
 
 <div id="nos-bg" aria-hidden="true"></div>
+<div id="nos-bg-mask" aria-hidden="true"></div>
 
 <img id="nos-chars" src="assets/nos-chars.png" alt="">
 <img id="nos-chars-glow" src="assets/nos-chars-glow.png" alt="">
@@ -70,6 +83,7 @@ hide:
     var baseY = 0;
 
     var bg = document.getElementById('nos-bg');
+    var mask = document.getElementById('nos-bg-mask');
     var chars = document.getElementById('nos-chars');
     var glow = document.getElementById('nos-chars-glow');
     function onScroll() {
@@ -78,8 +92,12 @@ hide:
       bg.style.backgroundPosition = 'center calc(70% + ' + bgY + 'px)';
       chars.style.transform = 'translateY(' + charsY + 'px)';
       glow.style.transform = 'translateY(' + charsY + 'px)';
+      var charsBottom = chars.getBoundingClientRect().bottom;
+      var maskTop = Math.max(0, Math.min(window.innerHeight, charsBottom));
+      mask.style.top = maskTop + 'px';
     }
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
     onScroll();
   })();
 </script>
