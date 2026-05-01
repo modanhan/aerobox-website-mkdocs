@@ -6,6 +6,10 @@ hide:
 ---
 
 <style>
+  :root {
+    --nos-content-offset: 0px;
+  }
+
   .md-header,
   .md-tabs,
   .md-header--shadow {
@@ -32,8 +36,13 @@ hide:
     bottom: 0;
     top: 100vh;
     pointer-events: none;
-    z-index: 1;
+    z-index: -1;
     background: var(--md-default-bg-color, #fff);
+  }
+
+  .md-main__inner,
+  .md-content__inner {
+    padding-top: calc(var(--nos-content-offset) + 1rem);
   }
 
   #nos-chars {
@@ -86,6 +95,7 @@ hide:
     var mask = document.getElementById('nos-bg-mask');
     var chars = document.getElementById('nos-chars');
     var glow = document.getElementById('nos-chars-glow');
+    var root = document.documentElement;
     function onScroll() {
       var bgY = baseY + window.scrollY * bgSpeed;
       var charsY = window.scrollY * charsSpeed + 100;
@@ -94,7 +104,9 @@ hide:
       glow.style.transform = 'translateY(' + charsY + 'px)';
       var charsBottom = chars.getBoundingClientRect().bottom;
       var maskTop = Math.max(0, Math.min(window.innerHeight, charsBottom));
+      var contentTop = Math.max(0, Math.min(window.innerHeight, charsBottom - window.scrollY * charsSpeed));
       mask.style.top = maskTop + 'px';
+      root.style.setProperty('--nos-content-offset', contentTop - window.innerHeight * 0.5 + 'px');
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
@@ -102,4 +114,10 @@ hide:
   })();
 </script>
 
-<div style="height: 300vh;"></div>
+<!-- <div style="height: 300vh;"></div> -->
+
+# Hi
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+<div style="height: 100vh;"></div>
