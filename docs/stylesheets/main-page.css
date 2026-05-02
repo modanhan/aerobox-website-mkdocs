@@ -5,7 +5,7 @@
     z-index: -100;
     background-image: url('../assets/nos-bg-1.png');
     background-size: cover;
-    background-position: bottom center;
+    background-position: 75% calc(70% + var(--bgY) * 1px);
     background-repeat: no-repeat;
     will-change: background-position;
 }

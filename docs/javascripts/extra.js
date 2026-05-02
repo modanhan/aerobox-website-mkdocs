@@ -16,8 +16,6 @@ function mainPage() {
     function onScroll() {
         const bgY = baseY + window.scrollY * bgSpeed;
         const charsY = window.scrollY * charsSpeed + 100;
-        const bgX = mobileQuery.matches ? '100%' : 'center';
-        bg.style.backgroundPosition = `${bgX} calc(70% + ${bgY}px)`;
         chars.style.transform = `translateY(${charsY}px)`;
         glow.style.transform = `translateY(${charsY}px)`;
         const charsBottom = chars.getBoundingClientRect().bottom;
@@ -30,6 +28,8 @@ function mainPage() {
         gradient.style.top = `${gradientTop}px`;
         gradient.style.opacity = gradientOpacity.toFixed(3);
         root.style.setProperty('--nos-content-offset', `${contentTop - window.innerHeight * 0.5}px`);
+
+        root.style.setProperty('--bgY', `${bgY}`);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
