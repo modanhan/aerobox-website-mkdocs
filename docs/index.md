@@ -52,6 +52,7 @@ hide:
     <a class="game-button" href="rogue-racer/" aria-label="Play Rogue Racer NOS">
       <span class="game-button-bg-wrap" aria-hidden="true">
         <img class="game-button-bg" src="assets/nos-bg-1.png" alt="">
+        <img class="game-button-logo" src="assets/nos-logo.png" alt="">
       </span>
       <span class="game-button-chars-wrap" aria-hidden="true">
         <img class="game-button-chars" src="assets/nos-chars.png" alt="">
@@ -68,5 +69,5 @@ hide:
   </div>
 </section>
 
-<div style="height: 60vh;"></div>
+<div style="height: 30vh;"></div>
 </div>

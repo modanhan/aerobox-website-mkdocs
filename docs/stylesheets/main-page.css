@@ -116,7 +116,7 @@
 
 .main-page .games-section {
     position: relative;
-    margin: clamp(18vh, 26vh, 32vh) auto 0;
+    margin: clamp(12vh, 12vh, 12vh) auto 0;
     width: min(1100px, 92vw);
     text-align: center;
     z-index: 2;
@@ -194,6 +194,25 @@
     transform: scale(1);
     transform-origin: center bottom;
     transition: transform 300ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.main-page .game-button-logo {
+    position: absolute;
+    left: 0;
+    top: 59%;
+    transform: translateY(-50%) scale(1);
+    width: 60%;
+    height: auto;
+    object-fit: contain;
+    object-position: left center;
+    pointer-events: none;
+    z-index: 1;
+    transition: transform 300ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.main-page .game-button:hover .game-button-logo,
+.main-page .game-button:focus-visible .game-button-logo {
+    transform: translateY(-50%) scale(1.03);
 }
 
 .main-page .game-button::after {
