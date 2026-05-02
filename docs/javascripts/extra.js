@@ -12,12 +12,11 @@ function mainPage() {
     const chars = document.getElementById('nos-chars');
     const glow = document.getElementById('nos-chars-glow');
     const root = document.documentElement;
-    const mobileQuery = window.matchMedia('(max-aspect-ratio: 1)');
     function onScroll() {
         const bgY = baseY + window.scrollY * bgSpeed;
         const charsY = window.scrollY * charsSpeed + 100;
-        chars.style.transform = `translateY(${charsY}px)`;
-        glow.style.transform = `translateY(${charsY}px)`;
+        // chars.style.transform = `translateY(${charsY}px)`;
+        // glow.style.transform = `translateY(${charsY}px)`;
         const charsBottom = chars.getBoundingClientRect().bottom;
         const maskTop = Math.max(0, Math.min(window.innerHeight, charsBottom));
         const contentTop = Math.max(0, Math.min(window.innerHeight, charsBottom - window.scrollY * charsSpeed));
@@ -30,6 +29,8 @@ function mainPage() {
         root.style.setProperty('--nos-content-offset', `${contentTop - window.innerHeight * 0.5}px`);
 
         root.style.setProperty('--bgY', `${bgY}`);
+        root.style.setProperty('--charsY', `${charsY}px`);
+        root.style.setProperty('--charsX', `${window.innerWidth / window.innerHeight}`);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
