@@ -14,9 +14,12 @@ function mainPage() {
     const root = document.documentElement;
     function onScroll() {
         const bgY = baseY + window.scrollY * bgSpeed;
-        const charsY = window.scrollY * charsSpeed + 100;
-        // chars.style.transform = `translateY(${charsY}px)`;
-        // glow.style.transform = `translateY(${charsY}px)`;
+        const charsY = window.scrollY * charsSpeed + 60;
+
+        root.style.setProperty('--bgY', `${bgY}`);
+        root.style.setProperty('--charsY', `${charsY}px`);
+        root.style.setProperty('--charsX', `${window.innerWidth / window.innerHeight}`);
+
         const charsBottom = chars.getBoundingClientRect().bottom;
         const maskTop = Math.max(0, Math.min(window.innerHeight, charsBottom));
         const contentTop = Math.max(0, Math.min(window.innerHeight, charsBottom - window.scrollY * charsSpeed));
@@ -28,9 +31,6 @@ function mainPage() {
         gradient.style.opacity = gradientOpacity.toFixed(3);
         root.style.setProperty('--nos-content-offset', `${contentTop - window.innerHeight * 0.5}px`);
 
-        root.style.setProperty('--bgY', `${bgY}`);
-        root.style.setProperty('--charsY', `${charsY}px`);
-        root.style.setProperty('--charsX', `${window.innerWidth / window.innerHeight}`);
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
