@@ -46,8 +46,27 @@ hide:
 
 <div id="nos-content-start"></div>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<section class="games-section" aria-labelledby="games-title">
+  <h2 id="games-title">Games</h2>
+  <div class="games-grid">
+    <a class="game-button" href="rogue-racer/" aria-label="Play Rogue Racer NOS">
+      <span class="game-button-bg-wrap" aria-hidden="true">
+        <img class="game-button-bg" src="assets/nos-bg-1.png" alt="">
+      </span>
+      <span class="game-button-chars-wrap" aria-hidden="true">
+        <img class="game-button-chars" src="assets/nos-chars.png" alt="">
+      </span>
+    </a>
+    <a class="game-button" href="rogue-racer/" aria-label="Play Rogue Racer EX">
+      <span class="game-button-bg-wrap" aria-hidden="true">
+        <img class="game-button-bg" src="assets/button-ex-bg.png" alt="">
+      </span>
+      <span class="game-button-chars-wrap" aria-hidden="true">
+        <img class="game-button-chars" src="assets/button-ex-chars.png" alt="">
+      </span>
+    </a>
+  </div>
+</section>
 
-<div style="height: 100vh;"></div>
-
+<div style="height: 60vh;"></div>
 </div>
