@@ -11,6 +11,7 @@ function mainPage() {
     const gradient = document.getElementById('nos-bg-gradient');
     const chars = document.getElementById('nos-chars');
     const glow = document.getElementById('nos-chars-glow');
+    const scrollIndicator = document.getElementById('nos-scroll-indicator');
     const root = document.documentElement;
     function onScroll() {
         const bgY = baseY + window.scrollY * bgSpeed;
@@ -26,9 +27,14 @@ function mainPage() {
         const gradientHeight = 520;
         const gradientTop = maskTop - gradientHeight;
         const gradientOpacity = Math.min(1, window.scrollY / 900);
+        const scrollIndicatorOpacity = Math.max(0, 1 - window.scrollY / 180);
         mask.style.top = `${maskTop}px`;
         gradient.style.top = `${gradientTop}px`;
         gradient.style.opacity = gradientOpacity.toFixed(3);
+        if (scrollIndicator) {
+            scrollIndicator.style.setProperty('--scroll-indicator-opacity', scrollIndicatorOpacity.toFixed(3));
+            scrollIndicator.style.pointerEvents = scrollIndicatorOpacity < 0.12 ? 'none' : 'auto';
+        }
         root.style.setProperty('--nos-content-offset', `${contentTop - window.innerHeight * 0.5}px`);
 
     }

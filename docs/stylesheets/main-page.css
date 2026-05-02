@@ -61,3 +61,83 @@
 .main-page #nos-chars-glow {
     mix-blend-mode: color-dodge;
 }
+
+.main-page #nos-scroll-indicator {
+    --scroll-indicator-opacity: 1;
+    position: fixed;
+    left: 50%;
+    bottom: clamp(20px, 5vh, 44px);
+    transform: translateX(-50%);
+    z-index: 20;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: color-mix(in srgb, var(--md-default-fg-color, #fff) 92%, transparent);
+    text-decoration: none;
+    opacity: var(--scroll-indicator-opacity, 1);
+    transition: opacity 180ms linear;
+    animation: nos-scroll-bob 1.8s ease-in-out infinite;
+}
+
+.main-page #nos-scroll-indicator:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+.main-page .nos-scroll-text {
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-size: 0.66rem;
+    font-weight: 700;
+}
+
+.main-page .nos-scroll-icon {
+    width: 20px;
+    height: 34px;
+    border: 2px solid currentColor;
+    border-radius: 999px;
+    position: relative;
+}
+
+.main-page .nos-scroll-icon::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 6px;
+    width: 4px;
+    height: 8px;
+    border-radius: 99px;
+    background: currentColor;
+    transform: translateX(-50%);
+    animation: nos-scroll-wheel 1.5s ease-in-out infinite;
+}
+
+@keyframes nos-scroll-bob {
+
+    0%,
+    100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 6px);
+    }
+}
+
+@keyframes nos-scroll-wheel {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 0);
+    }
+
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, 12px);
+    }
+}
