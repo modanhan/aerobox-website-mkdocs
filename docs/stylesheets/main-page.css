@@ -1,0 +1,75 @@
+.main-page #nos-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -100;
+    background-image: url('../assets/nos-bg-1.png');
+    background-size: cover;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    will-change: background-position;
+}
+
+.main-page #nos-bg-mask {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 100vh;
+    pointer-events: none;
+    z-index: -100;
+    background: var(--md-default-bg-color, #fff);
+}
+
+.main-page #nos-bg-gradient {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 520px;
+    top: calc(100vh - 520px);
+    pointer-events: none;
+    z-index: -8;
+    opacity: 0;
+    background: linear-gradient(to bottom,
+            color-mix(in srgb, var(--md-default-bg-color) 0%, transparent) 0%,
+            color-mix(in srgb, var(--md-default-bg-color) 2%, transparent) 20%,
+            color-mix(in srgb, var(--md-default-bg-color) 8%, transparent) 38%,
+            color-mix(in srgb, var(--md-default-bg-color) 22%, transparent) 56%,
+            color-mix(in srgb, var(--md-default-bg-color) 50%, transparent) 74%,
+            color-mix(in srgb, var(--md-default-bg-color) 82%, transparent) 88%,
+            var(--md-default-bg-color, #fff) 100%);
+}
+
+.main-page #nos-chars {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -10;
+    transform-origin: bottom right;
+    height: clamp(360px, 110vh, 1280px);
+    width: auto;
+    max-width: none;
+}
+
+.main-page #nos-chars-glow {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: -9;
+    transform-origin: bottom right;
+    mix-blend-mode: color-dodge;
+    height: clamp(360px, 110vh, 1280px);
+    width: auto;
+    max-width: none;
+}
+
+@media (max-aspect-ratio: 1) {
+
+    .main-page #nos-chars,
+    .main-page #nos-chars-glow {
+        right: -20vw;
+        height: clamp(280px, 80vh, 840px);
+    }
+}

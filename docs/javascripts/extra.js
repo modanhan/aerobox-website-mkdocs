@@ -1,0 +1,38 @@
+function mainPage() {
+    const _mainPage = document.querySelector('.main-page');
+    if (!_mainPage) return;
+
+    const bgSpeed = -0.25; // smaller value = slower background movement
+    const charsSpeed = -1.0; // 1.0 = full page scroll speed
+    const baseY = 0;
+
+    const bg = document.getElementById('nos-bg');
+    const mask = document.getElementById('nos-bg-mask');
+    const gradient = document.getElementById('nos-bg-gradient');
+    const chars = document.getElementById('nos-chars');
+    const glow = document.getElementById('nos-chars-glow');
+    const root = document.documentElement;
+    const mobileQuery = window.matchMedia('(max-aspect-ratio: 1)');
+    function onScroll() {
+        const bgY = baseY + window.scrollY * bgSpeed;
+        const charsY = window.scrollY * charsSpeed + 100;
+        const bgX = mobileQuery.matches ? '100%' : 'center';
+        bg.style.backgroundPosition = `${bgX} calc(70% + ${bgY}px)`;
+        chars.style.transform = `translateY(${charsY}px)`;
+        glow.style.transform = `translateY(${charsY}px)`;
+        const charsBottom = chars.getBoundingClientRect().bottom;
+        const maskTop = Math.max(0, Math.min(window.innerHeight, charsBottom));
+        const contentTop = Math.max(0, Math.min(window.innerHeight, charsBottom - window.scrollY * charsSpeed));
+        const gradientHeight = 520;
+        const gradientTop = maskTop - gradientHeight;
+        const gradientOpacity = Math.min(1, window.scrollY / 900);
+        mask.style.top = `${maskTop}px`;
+        gradient.style.top = `${gradientTop}px`;
+        gradient.style.opacity = gradientOpacity.toFixed(3);
+        root.style.setProperty('--nos-content-offset', `${contentTop - window.innerHeight * 0.5}px`);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    onScroll();
+}
+mainPage();

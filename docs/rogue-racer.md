@@ -8,12 +8,15 @@ hide:
 <div class="rogue-racer-bg"></div>
 
 <style>
-.md-header {
-    position: absolute;
-}
-</style>
+  .md-typeset h1,
+  .md-content__button {
+    display: none;
+  }
 
-#
+  .md-header {
+      position: absolute;
+  }
+</style>
 
 ![Rogue Racer](assets/nos-logo.png)
 
