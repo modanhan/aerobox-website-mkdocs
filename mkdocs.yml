@@ -3,6 +3,7 @@ site_url: https://aeroboxgames.com
 
 nav:
   - Games: index.md
+  - Element X: element-x.md
   - Rogue Racer: rogue-racer.md
 
 theme:
@@ -38,8 +39,10 @@ extra:
 extra_css:
   - stylesheets/extra.css
   - stylesheets/main-page.css
+  - stylesheets/element-x.css
 
 extra_javascript:
   - javascripts/extra.js
+  - javascripts/element-x.js
 
 copyright: Copyright &copy; 2020 - 2026 Aerobox Games.
