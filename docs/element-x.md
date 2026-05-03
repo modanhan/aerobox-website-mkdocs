@@ -15,7 +15,7 @@ hide:
   </section>
 
   <section class="element-x-section element-x-embed-panel">
-    <iframe src="https://store.steampowered.com/widget/1361120/" frameborder="0" width="646" height="190" title="Element X Steam Widget"></iframe>
+    <iframe src="https://store.steampowered.com/widget/1361120/ " frameborder="0" width="646" height="190" title="Element X Steam Widget" allowtransparency="true" style="color-scheme: light"></iframe>
   </section>
 
   <section class="element-x-section element-x-video-panel">

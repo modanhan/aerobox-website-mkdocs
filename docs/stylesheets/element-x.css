@@ -105,7 +105,16 @@
     justify-content: center;
 }
 
-.element-x-embed-panel iframe,
+.element-x-embed-panel iframe {
+    display: block;
+    width: min(100%, 646px);
+    max-width: 100%;
+    aspect-ratio: 646 / 190;
+    height: auto;
+    border: 0;
+    background: transparent;
+}
+
 .element-x-video-panel iframe {
     width: min(100%, 960px);
     max-width: 100%;

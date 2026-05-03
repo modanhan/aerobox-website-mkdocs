@@ -2,7 +2,7 @@
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: -100;
+    z-index: -200;
     background-image: url('../assets/nos-bg-1.png');
     background-size: cover;
     background-position: 75% calc(70% + var(--bgY) * 1px);

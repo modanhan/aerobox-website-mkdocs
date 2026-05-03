@@ -12,10 +12,6 @@ hide:
   .md-content__button {
     display: none;
   }
-
-  .md-header {
-      position: absolute;
-  }
 </style>
 
 ![Rogue Racer](assets/nos-logo.png)
