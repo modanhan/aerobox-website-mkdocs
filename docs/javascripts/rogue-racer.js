@@ -5,7 +5,7 @@ function rogueRacerPage() {
     if (!page || !logo || !bg) return;
 
     function onScroll() {
-        const progress = Math.max(0, Math.min(1, window.scrollY / 240));
+        const progress = Math.max(0, Math.min(1, window.scrollY / 360));
         const scale = 1 - progress;
         const opacity = 1 - progress;
 
