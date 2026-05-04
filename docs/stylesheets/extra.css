@@ -18,23 +18,3 @@
 .md-main {
     padding-bottom: 108px;
 }
-
-/* Rogue Racer page background */
-.rogue-racer-bg {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background-image: url('../assets/nos-bg-1.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.rogue-racer-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.75) 100%),
-        rgba(0, 0, 0, 0.0);
-}

@@ -5,6 +5,8 @@ hide:
   - footer
 ---
 
+<!-- markdownlint-disable MD033 -->
+
 <div class="element-x-page">
   <div class="element-x-bg" aria-hidden="true"></div>
 
@@ -14,9 +16,9 @@ hide:
     <h1>Roguelike Bullet Hell</h1>
   </section>
 
-  <section class="element-x-section element-x-embed-panel">
-    <iframe src="https://store.steampowered.com/widget/1361120/ " frameborder="0" width="646" height="190" title="Element X Steam Widget" allowtransparency="true" style="color-scheme: light"></iframe>
-  </section>
+<!-- <section class="element-x-section element-x-embed-panel"> -->
+  <iframe class="element-x-steam-widget" src="https://store.steampowered.com/widget/1361120/" frameborder="0" width="646" height="190" style="color-scheme: light; justify-content: center; display: flex; margin: 0 auto clamp(18px, 2.2vw, 28px);"></iframe>
+<!-- </section> -->
 
   <section class="element-x-section element-x-video-panel">
     <iframe width="1316" height="740" src="https://www.youtube.com/embed/P7ZU3IZtmg0" title="Element X Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

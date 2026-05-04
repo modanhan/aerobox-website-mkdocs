@@ -10,6 +10,11 @@
     margin: 0;
 }
 
+.element-x-steam-widget {
+    position: relative;
+    z-index: 30;
+}
+
 .element-x-bg {
     position: fixed;
     inset: 0;

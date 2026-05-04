@@ -1,0 +1,66 @@
+.rogue-racer-page {
+    --rr-logo-scale: 1;
+    --rr-logo-opacity: 1;
+    position: relative;
+}
+
+.rogue-racer-logo-float {
+    position: fixed;
+    left: 50%;
+    top: clamp(0px, 4vh, 160px);
+    width: min(920px, 76vw);
+    transform: translateX(-50%) scale(var(--rr-logo-scale));
+    transform-origin: top center;
+    opacity: var(--rr-logo-opacity);
+    transition: opacity 120ms linear;
+    z-index: 20;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.rogue-racer-content {
+    display: grid;
+    gap: 18px;
+    justify-items: center;
+    margin-top: clamp(170px, 30vw, 260px);
+}
+
+.rogue-racer-content iframe {
+    max-width: 100%;
+}
+
+.rr-steam-widget {
+    position: relative;
+    z-index: 30;
+}
+
+.rr-youtube-widget {
+    display: block;
+    width: min(1316px, 92vw);
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 1px solid color-mix(in srgb, #000000 20%, transparent);
+    border-radius: 14px;
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.48), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
+    overflow: hidden;
+}
+
+/* Rogue Racer page background */
+.rogue-racer-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: url('../assets/nos-bg-1.png');
+    background-size: cover;
+    background-position: center var(--rr-bg-y, 20%);
+    background-repeat: no-repeat;
+}
+
+.rogue-racer-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* background:
+        radial-gradient(ellipse at center, rgba(0, 0, 0, 0.05) 20%, rgba(0, 0, 0, 0.55) 100%),
+        rgba(6, 8, 14, 0.28); */
+}

@@ -38,10 +38,12 @@ extra:
 extra_css:
   - stylesheets/extra.css
   - stylesheets/main-page.css
+  - stylesheets/rogue-racer.css
   - stylesheets/element-x.css
 
 extra_javascript:
   - javascripts/extra.js
+  - javascripts/rogue-racer.js
   - javascripts/element-x.js
 
 copyright: Copyright &copy; 2020 - 2026 Aerobox Games.
