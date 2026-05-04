@@ -3,7 +3,7 @@ function elementXPage() {
     if (!root) return;
 
     const bg = root.querySelector('.element-x-bg');
-    const parallaxSpeed = -0.08;
+    const parallaxSpeed = -0.05;
 
     function updateParallax() {
         if (!bg) return;
