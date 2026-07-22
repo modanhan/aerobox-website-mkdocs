@@ -7,7 +7,9 @@
     background-size: cover;
     background-position: 75% calc(70% + var(--bgY) * 1px);
     background-repeat: no-repeat;
-    will-change: background-position;
+    transform-origin: center center;
+    will-change: background-position, transform, opacity;
+    animation: nos-bg-intro 1800ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
 .main-page #nos-bg-mask {
@@ -56,10 +58,12 @@
 
 .main-page #nos-chars {
     z-index: -10;
+    animation: nos-chars-intro 1000ms cubic-bezier(0.2, 0.7, 0.2, 1) 120ms both;
 }
 
 .main-page #nos-chars-glow {
     mix-blend-mode: color-dodge;
+    animation: nos-chars-glow-intro 1300ms cubic-bezier(0.2, 0.7, 0.2, 1) 220ms both;
 }
 
 .main-page #nos-scroll-indicator {
@@ -313,5 +317,60 @@
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .main-page #nos-bg,
+    .main-page #nos-chars,
+    .main-page #nos-chars-glow {
+        animation: none !important;
+    }
+}
+
+@keyframes nos-bg-intro {
+    from {
+        opacity: 0.82;
+        transform: translateX(26px) scale(1.03);
+        filter: saturate(1.08);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        filter: saturate(1);
+    }
+}
+
+@keyframes nos-chars-intro {
+    from {
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateX(calc(clamp(0px, calc((1 - var(--charsX, 1)) * 500px), 500px) + 150px)) translateY(calc(var(--charsY, 0px) + 18px)) scale(0.992);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateX(clamp(0px, calc((1 - var(--charsX, 1)) * 500px), 500px)) translateY(var(--charsY, 0px)) scale(1);
+    }
+}
+
+@keyframes nos-chars-glow-intro {
+    from {
+        opacity: 0;
+        filter: blur(14px) saturate(1.25);
+        transform: translateX(calc(clamp(0px, calc((1 - var(--charsX, 1)) * 500px), 500px) + 180px)) translateY(calc(var(--charsY, 0px) + 28px)) scale(1.02);
+    }
+
+    70% {
+        opacity: 0.82;
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0) saturate(1);
+        transform: translateX(clamp(0px, calc((1 - var(--charsX, 1)) * 500px), 500px)) translateY(var(--charsY, 0px)) scale(1);
     }
 }
