@@ -1,5 +1,5 @@
 # Aerobox Website Mkdocs
 
 `mkdocs build`
-`mkdocs serve`
+`mkdocs serve --livereload`
 `mkdocs gh-deploy`
