@@ -1,0 +1,20 @@
+.md-header {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.md-header,
+.md-tabs,
+.md-header--shadow {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.md-footer-meta__inner.md-grid {
+    padding-bottom: 54px;
+    padding-top: 54px;
+}
+
+.md-main {
+    padding-bottom: 108px;
+}
